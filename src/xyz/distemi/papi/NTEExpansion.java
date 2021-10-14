@@ -1,8 +1,6 @@
 package xyz.distemi.papi;
 
 import com.nametagedit.plugin.NametagEdit;
-import com.nametagedit.plugin.api.INametagApi;
-import com.nametagedit.plugin.api.NametagAPI;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;

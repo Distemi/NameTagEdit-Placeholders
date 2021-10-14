@@ -8,16 +8,13 @@ import com.nametagedit.plugin.api.data.GroupData;
 import com.nametagedit.plugin.api.data.Nametag;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-import java.util.Locale;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class NTEData {
 
-    private static LoadingCache<String, NTEUserData> cache = CacheBuilder.newBuilder()
+    private static final LoadingCache<String, NTEUserData> cache = CacheBuilder.newBuilder()
             .expireAfterWrite(4, TimeUnit.SECONDS)
             .maximumSize(2000)
             .concurrencyLevel(5).build(
@@ -42,9 +39,9 @@ public class NTEData {
         Player p = Bukkit.getPlayer(player);
         Nametag tag = api.getNametag(p);
         NTEUserData d = new NTEUserData(tag.getPrefix(), tag.getSuffix());
-        if (!d.prefix.isEmpty() && !d.suffix.isEmpty() ) {
-            for ( GroupData data : api.getGroupData() ) {
-                if ( p.hasPermission(data.getPermission()) ) {
+        if (!d.prefix.isEmpty() && !d.suffix.isEmpty()) {
+            for (GroupData data : api.getGroupData()) {
+                if (p.hasPermission(data.getPermission())) {
                     d = new NTEUserData(data.getPrefix(), data.getSuffix());
                     break;
                 }
@@ -65,6 +62,7 @@ public class NTEData {
     public static class NTEUserData {
         public String prefix;
         public String suffix;
+
         public NTEUserData(String prefix, String suffix) {
             this.prefix = ChatColor.translateAlternateColorCodes('&', prefix);
             this.suffix = ChatColor.translateAlternateColorCodes('&', suffix);
