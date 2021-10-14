@@ -24,7 +24,7 @@ public class NTEExpansion extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getIdentifier() {
-        return "nte";
+        return "nametagedit";
     }
 
     @Override

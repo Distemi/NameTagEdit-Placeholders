@@ -7,4 +7,4 @@ to placeholders by [PlaceholderAPI](https://www.spigotmc.org/resources/placehold
 
 ---
 
-### `Available placeholders: %nte_prefix%, %nte_suffix%`
+### `Available placeholders: %nametagedit_prefix%, %nametagedit_suffix%`
